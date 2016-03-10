@@ -5,7 +5,7 @@ Summary:	fruit_ninija
 
 Group:		Applicaton
 License:	LGPL
-URL:		www.syberos.net
+URL:	        www.aaa.com
 Source0:	%{name}-%{version}.tar.gz		
 BuildRoot:	%{_tmppath}/%{name}-root
 BuildRequires:  pkgconfig(Qt5Core)
