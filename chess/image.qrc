@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/board.bmp</file>
+        <file>images/chessmen.png</file>
+        <file>images/editcopy</file>
+        <file>images/editcut</file>
+        <file>images/editpaste</file>
+        <file>images/filenew</file>
+        <file>images/fileopen</file>
+        <file>images/filesave</file>
+        <file>images/print</file>
+        <file>images/redo</file>
+        <file>images/searchfind</file>
+        <file>images/undo</file>
+    </qresource>
+</RCC>
