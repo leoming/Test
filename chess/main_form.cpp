@@ -463,8 +463,8 @@ void MainForm::think()
  *  name 'name' and widget flags set to 'f'.
  *
  */
-MainForm::MainForm(QWidget* parent, Qt::WindowFlags fl)
-    : QMainWindow(parent, fl)
+MainForm::MainForm(QWidget* parent)
+    : QMainWindow(parent)
 {
     setupUi(this);
 

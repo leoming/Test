@@ -213,7 +213,7 @@ public:
 
 
 public:
-    MainForm(QWidget* parent = 0, Qt::WindowFlags fl = Qt::Desktop);
+    MainForm(QWidget* parent = 0);
     ~MainForm();
 
     virtual bool eventFilter( QObject * target, QEvent * event );
