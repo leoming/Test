@@ -51,6 +51,7 @@ public:
         groupBox1 = new QGroupBox(ConfigForm);
         groupBox1->setObjectName(QString::fromUtf8("groupBox1"));
         //groupBox1->setColumnLayout(0, Qt::Vertical);
+        groupBox1->setLayout(new QVBoxLayout());
         groupBox1->layout()->setSpacing(6);
         groupBox1->layout()->setContentsMargins(11, 11, 11, 11);
         gridLayout1 = new QGridLayout();
@@ -108,6 +109,7 @@ public:
         groupBox2 = new QGroupBox(ConfigForm);
         groupBox2->setObjectName(QString::fromUtf8("groupBox2"));
         //groupBox2->setColumnLayout(0, Qt::Vertical);
+        groupBox2->setLayout(new QVBoxLayout());
         groupBox2->layout()->setSpacing(6);
         groupBox2->layout()->setContentsMargins(11, 11, 11, 11);
         gridLayout2 = new QGridLayout();

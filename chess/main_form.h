@@ -160,16 +160,16 @@ public:
         helpMenu->addAction(helpAboutAction);
 
         retranslateUi(MainForm);
-        QObject::connect(fileNewAction, SIGNAL(activated()), MainForm, SLOT(fileNew()));
-        QObject::connect(fileOpenAction, SIGNAL(activated()), MainForm, SLOT(fileOpen()));
-        QObject::connect(fileSaveAction, SIGNAL(activated()), MainForm, SLOT(fileSave()));
-        QObject::connect(fileSaveAsAction, SIGNAL(activated()), MainForm, SLOT(fileSaveAs()));
-        QObject::connect(fileExitAction, SIGNAL(activated()), MainForm, SLOT(fileExit()));
-        QObject::connect(editUndoAction, SIGNAL(activated()), MainForm, SLOT(editUndo()));
-        QObject::connect(editRedoAction, SIGNAL(activated()), MainForm, SLOT(editRedo()));
-        QObject::connect(helpAboutAction, SIGNAL(activated()), MainForm, SLOT(helpAbout()));
-        QObject::connect(editConfigAction, SIGNAL(activated()), MainForm, SLOT(editConfigAction_activated()));
-        QObject::connect(MainForm, SIGNAL(usesTextLabelChanged(bool)), MainForm, SLOT(MainForm_usesTextLabelChanged(bool)));
+        QObject::connect(fileNewAction, SIGNAL(triggered()), MainForm, SLOT(fileNew()));
+        QObject::connect(fileOpenAction, SIGNAL(triggered()), MainForm, SLOT(fileOpen()));
+        QObject::connect(fileSaveAction, SIGNAL(triggered()), MainForm, SLOT(fileSave()));
+        QObject::connect(fileSaveAsAction, SIGNAL(triggered()), MainForm, SLOT(fileSaveAs()));
+        QObject::connect(fileExitAction, SIGNAL(triggered()), MainForm, SLOT(fileExit()));
+        QObject::connect(editUndoAction, SIGNAL(triggered()), MainForm, SLOT(editUndo()));
+        QObject::connect(editRedoAction, SIGNAL(triggered()), MainForm, SLOT(editRedo()));
+        QObject::connect(helpAboutAction, SIGNAL(triggered()), MainForm, SLOT(helpAbout()));
+        QObject::connect(editConfigAction, SIGNAL(triggered()), MainForm, SLOT(editConfigAction_activated()));
+        //QObject::connect(MainForm, SIGNAL(usesTextLabelChanged(bool)), MainForm, SLOT(MainForm_usesTextLabelChanged(bool)));
 
         QMetaObject::connectSlotsByName(MainForm);
     } // setupUi

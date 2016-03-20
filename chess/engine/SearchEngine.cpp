@@ -82,6 +82,7 @@ int CSearchEngine::IsGameOver(BYTE position[][9], int nDepth)
             return 19990+nDepth; //奇数层返回极大值
         else
             return -19990-nDepth;//偶数层返回极小值
+    else return 0;
 
     //黑方不在
     if(!BlackLive)
@@ -89,6 +90,7 @@ int CSearchEngine::IsGameOver(BYTE position[][9], int nDepth)
             return -19990-nDepth;//奇数层返回极小值
         else
             return 19990+nDepth; //偶数层返回极大值
-        
+    else return 0;
+
     return 0;//将帅都在，返回0
 }
