@@ -1,0 +1,245 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>ConfigForm</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>ConfigForm</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>363</width>
+            <height>243</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Config Form</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QGroupBox" row="0" column="0" rowspan="1" colspan="2">
+            <property name="name">
+                <cstring>groupBox1</cstring>
+            </property>
+            <property name="title">
+                <string>Choose Mode</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel" row="0" column="0">
+                    <property name="name">
+                        <cstring>textLabel2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Red player</string>
+                    </property>
+                </widget>
+                <widget class="QComboBox" row="0" column="1">
+                    <item>
+                        <property name="text">
+                            <string>Man</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Computer</string>
+                        </property>
+                    </item>
+                    <property name="name">
+                        <cstring>comboRedPlayer</cstring>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="1" column="0">
+                    <property name="name">
+                        <cstring>textLabel3</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Black Player</string>
+                    </property>
+                </widget>
+                <widget class="QComboBox" row="1" column="1">
+                    <item>
+                        <property name="text">
+                            <string>Man</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Computer</string>
+                        </property>
+                    </item>
+                    <property name="name">
+                        <cstring>comboBlackPlayer</cstring>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="2" column="0">
+                    <property name="name">
+                        <cstring>textLabel4</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Who is on top</string>
+                    </property>
+                </widget>
+                <widget class="QComboBox" row="2" column="1">
+                    <item>
+                        <property name="text">
+                            <string>Red</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Black</string>
+                        </property>
+                    </item>
+                    <property name="name">
+                        <cstring>comboWhoIsOnTop</cstring>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+        <widget class="QPushButton" row="2" column="1">
+            <property name="name">
+                <cstring>buttonCancel</cstring>
+            </property>
+            <property name="text">
+                <string>&amp;Cancel</string>
+            </property>
+            <property name="accel">
+                <string>Alt+C</string>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="2" column="0">
+            <property name="name">
+                <cstring>buttonOK</cstring>
+            </property>
+            <property name="text">
+                <string>&amp;OK</string>
+            </property>
+            <property name="accel">
+                <string>Alt+O</string>
+            </property>
+        </widget>
+        <widget class="QGroupBox" row="1" column="0" rowspan="1" colspan="2">
+            <property name="name">
+                <cstring>groupBox2</cstring>
+            </property>
+            <property name="title">
+                <string>Computer setting</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QComboBox" row="0" column="1">
+                    <property name="name">
+                        <cstring>comboEngine</cstring>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="1" column="0">
+                    <property name="name">
+                        <cstring>textLabel6</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Computer level</string>
+                    </property>
+                </widget>
+                <widget class="QComboBox" row="1" column="1">
+                    <item>
+                        <property name="text">
+                            <string>1</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>2</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>3</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>4</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>5</string>
+                        </property>
+                    </item>
+                    <property name="name">
+                        <cstring>comboComputerLevel</cstring>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="0" column="0">
+                    <property name="name">
+                        <cstring>textLabel5</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Choose Engine</string>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+    </grid>
+</widget>
+<connections>
+    <connection>
+        <sender>buttonOK</sender>
+        <signal>clicked()</signal>
+        <receiver>ConfigForm</receiver>
+        <slot>buttonOK_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>buttonCancel</sender>
+        <signal>clicked()</signal>
+        <receiver>ConfigForm</receiver>
+        <slot>buttonCancel_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>comboRedPlayer</sender>
+        <signal>activated(int)</signal>
+        <receiver>ConfigForm</receiver>
+        <slot>comboRedPlayer_activated(int)</slot>
+    </connection>
+    <connection>
+        <sender>comboBlackPlayer</sender>
+        <signal>activated(int)</signal>
+        <receiver>ConfigForm</receiver>
+        <slot>comboBlackPlayer_activated(int)</slot>
+    </connection>
+</connections>
+<includes>
+    <include location="local" impldecl="in implementation">configform.ui.h</include>
+</includes>
+<forwards>
+    <forward>class CChessGame;</forward>
+</forwards>
+<variables>
+    <variable>CChessGame* chessGame;</variable>
+    <variable>int computerEngine;</variable>
+    <variable>int computerLevel;</variable>
+    <variable access="public">bool blackOnTop;</variable>
+    <variable access="public">bool blackIsMan;</variable>
+    <variable access="public">bool redIsMan;</variable>
+</variables>
+<slots>
+    <slot>buttonOK_clicked()</slot>
+    <slot>buttonCancel_clicked()</slot>
+    <slot>comboRedPlayer_activated( int )</slot>
+    <slot>comboBlackPlayer_activated( int )</slot>
+</slots>
+<functions>
+    <function>initializeAll( CChessGame * game )</function>
+    <function>updateUI( bool refreshUI )</function>
+    <function>applyChanges()</function>
+</functions>
+<pixmapinproject/>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>
