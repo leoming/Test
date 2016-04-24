@@ -7,9 +7,14 @@ Widget::Widget(QWidget *parent) :
 {
     ui->setupUi(this);
     QPixmap pixMap(QString::fromUtf8("../boardres.png"));
-    QPixmap bord = pixMap.copy(0, 0, 720, 830);
+    //QPixmap bord = pixMap.copy(730, 763, 60, 40); // lie1
+    //QPixmap bord = pixMap.copy(795, 788, 40, 40); // lie2
+    // Black Pao 1 Pos
+    QPixmap bord = pixMap.copy(816, 262, 60, 42); // lie3
+    // get rect
+    //QPixmap bord = pixMap.copy(598, 602, 81, 81); // lie3
     ui->label->setPixmap(bord);
-    bord.save("../board.png");
+    bord.save("/home/zmm/works/Test/syberos-chess/images/red_ma1.png");
 }
 
 Widget::~Widget()
