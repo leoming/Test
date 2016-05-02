@@ -81,6 +81,25 @@ void CChessGame::invertBoard()
         }
 }
 
+void CChessGame::caculateComputerMove()
+{
+    for (int i = 0; i < 10; i++)
+        for (int j = 0; j < 9; j++)
+        {
+            //qDebug() << "bakeBoard[" << i << "][" << j << "]" << bakBoard[i][j];
+            //qDebug() << "board[" << i << "][" << j << "]" << board[i][j];
+            if (bakBoard[i][j] == board[i][j]) {
+                continue;
+            }
+            else if (board[i][j] == NOCHESS) {
+                from.x = j; from.y = i;
+            }
+            else {
+                to.x = j; to.y = i;
+            }
+        }
+}
+
 bool CChessGame::moveChess(int fromX, int fromY, int toX, int toY,
 		bool blackOnTop)
 {
@@ -107,10 +126,13 @@ bool CChessGame::moveChess(int fromX, int fromY, int toX, int toY,
 void CChessGame::computerRun(bool forRed)
 {
 	redoStack.clear();
-	engine->SetUserChessColor(forRed?BLACKCHESS:REDCHESS);
+    memcpy(bakBoard,board,90);
+    engine->SetUserChessColor(forRed?BLACKCHESS:REDCHESS);
 	engine->SearchAGoodMove(board);
     //computerMove = engine->GetBestMove();
     undoStack.push(engine->GetUndoMove());
+    caculateComputerMove();
+
     //return &computerMove;
 }
 
@@ -184,4 +206,25 @@ int CChessGame::getChessAt(int x, int y)
         return (int)board[y][x];
     return NOCHESS;
 }
+
+int CChessGame::getComputerMoveFromX()
+{
+    return from.x;
+}
+
+int CChessGame::getComputerMoveFromY()
+{
+    return from.y;
+}
+
+int CChessGame::getComputerMoveToX()
+{
+    return to.x;
+}
+
+int CChessGame::getComputerMoveToY()
+{
+    return to.y;
+}
+
 

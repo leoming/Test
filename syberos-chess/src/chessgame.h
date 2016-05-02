@@ -37,23 +37,31 @@ public:
 	virtual ~CChessGame();
 	BoardType* getBoard() { return &board; }
 public slots:
-    void computerRun(bool forRed = false);
+    void computerRun(bool forRed = true);
     bool moveChess(int fromX, int fromY, int toX, int toY, bool blackOnTop = true);
 	bool redo(); /* redo a change, return true if changed */
 	bool undo(); /* undo a change, return true if changed */
     int isGameOver();
     int getChessAt(int x, int y);
+    int getComputerMoveFromX();
+    int getComputerMoveFromY();
+    int getComputerMoveToX();
+    int getComputerMoveToY();
 private:
     void initChessBoard();
     void invertBoard();
+    void caculateComputerMove();
 
 private:
 	BYTE board[10][9];
-	CSearchEngine* engine;
+    BYTE bakBoard[10][9];
+    CSearchEngine* engine;
 	CMoveStack undoStack;
 	CMoveStack redoStack;
 	CMoveGenerator* moveGenerator;
 	CEveluation* evaluator;
+    CHESSMANPOS from;
+    CHESSMANPOS to;
     //CHESSMOVE computerMove;
 	void validateEngine();
 };
