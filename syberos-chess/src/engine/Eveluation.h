@@ -4,20 +4,13 @@
 #include "Define.h"
 //定义每种棋子价值
 //兵100，士250，象250，车500，马350，炮350，王无穷大
-//#define BASEVALUE_PAWN       100
-//#define BASEVALUE_BISHOP   250
-//#define BASEVALUE_ELEPHANT   250
-//#define BASEVALUE_CAR      700
-//#define BASEVALUE_HORSE        350
-//#define BASEVALUE_CANON        350
-//#define BASEVALUE_KING         10000
 #define BASEVALUE_PAWN       100
-#define BASEVALUE_BISHOP     250
+#define BASEVALUE_BISHOP   250
 #define BASEVALUE_ELEPHANT   250
-#define BASEVALUE_HORSE      700
-#define BASEVALUE_CANON      700
-#define BASEVALUE_CAR        1400
-#define BASEVALUE_KING       10000
+#define BASEVALUE_CAR      700
+#define BASEVALUE_HORSE        350
+#define BASEVALUE_CANON        350
+#define BASEVALUE_KING         10000
 
 //定义棋子灵活性，也就是每多一个可走位置应加的分值
 //兵15，士1，象1，车6，马12，炮6，王0
