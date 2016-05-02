@@ -18,7 +18,7 @@ public:
 	CNegaScout_TT_HH();
 	virtual ~CNegaScout_TT_HH();
 
-	virtual SearchAGoodMove(BYTE position[10][9]);
+    virtual void SearchAGoodMove(BYTE position[10][9]);
 
 protected:
 	int NegaScout(int depth, int alpha, int beta);

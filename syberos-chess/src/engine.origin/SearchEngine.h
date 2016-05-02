@@ -15,13 +15,13 @@ public:
 	CSearchEngine();
 	virtual ~CSearchEngine();
 	
-	virtual SearchAGoodMove(BYTE position[10][9])=0;
+    virtual void SearchAGoodMove(BYTE position[10][9])=0;
 	
-    virtual SetSearchDepth(int nDepth){m_nSearchDepth = nDepth;}
+    virtual void SetSearchDepth(int nDepth){m_nSearchDepth = nDepth;}
 	
-    virtual SetEveluator(CEveluation *pEval){m_pEval = pEval;}
+    virtual void SetEveluator(CEveluation *pEval){m_pEval = pEval;}
 
-    virtual SetMoveGenerator(CMoveGenerator *pMG){m_pMG = pMG;}
+    virtual void SetMoveGenerator(CMoveGenerator *pMG){m_pMG = pMG;}
 
 protected:
 	virtual BYTE MakeMove(CHESSMOVE* move);

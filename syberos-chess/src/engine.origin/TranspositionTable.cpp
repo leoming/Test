@@ -3,6 +3,8 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "TranspositionTable.h"
+#include "stdlib.h"
+#include "time.h"
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
@@ -37,7 +39,7 @@ void CTranspositionTable::InitializeHashKey()
 {
 	int i,j,k;
 	
-	srand( (unsigned)time( NULL ));
+    srand((unsigned)time(0));
 	
 	for (i = 0; i < 15; i++)
 		for (j = 0; j < 10; j++)

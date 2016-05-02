@@ -338,7 +338,8 @@ Window {
                 return;
             }
             //target.setSource(target.value < 8 ? blackSelectedBoard : redSelectedBoard, selectedList[target.value - 1])
-            target.z = 1;
+            if (target !== null)
+                target.z = 1;
             console.log("target", target)
         }
         onReleased: {

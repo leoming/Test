@@ -45,7 +45,7 @@ typedef struct
 
 typedef struct
 {
-	short	  	    ChessID;	//
+    short	  	    nChessID;	//
 	CHESSMANPOS	From;
 	CHESSMANPOS	To;			//
 	int			    Score;		// 

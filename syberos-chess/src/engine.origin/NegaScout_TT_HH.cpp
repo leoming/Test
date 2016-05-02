@@ -3,6 +3,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include "NegaScout_TT_HH.h"
+#include "string.h"
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
@@ -18,7 +19,7 @@ CNegaScout_TT_HH::~CNegaScout_TT_HH()
 	
 }
 
-CNegaScout_TT_HH::SearchAGoodMove(BYTE position[10][9])
+void CNegaScout_TT_HH::SearchAGoodMove(BYTE position[10][9])
 {
 	memcpy(CurPosition, position, 90);
 	m_nMaxDepth = m_nSearchDepth;
