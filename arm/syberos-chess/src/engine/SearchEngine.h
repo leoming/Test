@@ -1,47 +1,38 @@
-#ifndef AFX_SEARCHENGINE_H
-#define AFX_SEARCHENGINE_H
+﻿// SearchEngine.h: interface for the CSearchEngine class.
+//
+//////////////////////////////////////////////////////////////////////
 
-#include "Eveluation.h"
+#ifndef SEARCHENGINE_H_
+#define SEARCHENGINE_H_
+
 #include "MoveGenerator.h"
-#include <string.h>
+#include "Eveluation.h"
+#include "Define.h"
 
-//搜索引擎的基类
 class CSearchEngine  
 {
 public:
-    CSearchEngine();
-    virtual ~CSearchEngine();
+	CSearchEngine();
+	virtual ~CSearchEngine();
+	
+    virtual void SearchAGoodMove(BYTE position[10][9])=0;
+	
+    virtual void SetSearchDepth(int nDepth){m_nSearchDepth = nDepth;}
+	
+    virtual void SetEveluator(CEveluation *pEval){m_pEval = pEval;}
 
-public:
-    virtual void SearchAGoodMove(BYTE position[10][9])=0;        //走下一步
-    CHESSMOVE GetBestMove(){return m_cmBestMove;}          //得到最佳走法
-    UNDOMOVE GetUndoMove(){return m_umUndoMove;}           //得到悔棋走法
-    void SetSearchDepth(int nDepth){m_nSearchDepth=nDepth;}//设定最大搜索深度
-    void SetEveluator(CEveluation* pEval){m_pEval=pEval;}  //设定估值引擎
-    void SetMoveGenerator(CMoveGenerator* pMG){m_pMG =pMG;}//设定走法产生器
-    
-    void SetUserChessColor(int nUserChessColor){m_nUserChessColor=nUserChessColor;}
-                                                            //设定用户为黑方或红方
-
-    void UndoChessMove(BYTE position[10][9],CHESSMOVE* move,BYTE nChessID);//悔棋
-    void RedoChessMove(BYTE position[10][9],CHESSMOVE* move);              //还原
+    virtual void SetMoveGenerator(CMoveGenerator *pMG){m_pMG = pMG;}
 
 protected:
-    int IsGameOver(BYTE position[10][9],int nDepth);//判断是否已分胜负
-    BYTE MakeMove(CHESSMOVE* move);                 //根据某一走法产生走了之后的棋盘
-    void UnMakeMove(CHESSMOVE* move,BYTE nChessID); //恢复为走过之前的棋盘  
-
-public:
-    int m_nUserChessColor;
-
-protected:
-    BYTE CurPosition[10][9];        //搜索时用于记录当前节点棋盘状态的数组
-    CHESSMOVE m_cmBestMove;         //记录最佳走法
-    UNDOMOVE m_umUndoMove;
-    CMoveGenerator* m_pMG;          //走法产生器
-    CEveluation* m_pEval;           //估值核心
-    int m_nSearchDepth;             //最大搜索深度
-    int m_nMaxDepth;                //当前搜索的最大搜索深度
+	virtual BYTE MakeMove(CHESSMOVE* move);
+	virtual void UnMakeMove(CHESSMOVE* move,BYTE type);
+	virtual int IsGameOver(BYTE position[10][9], int nDepth);
+	BYTE CurPosition[10][9];
+	CHESSMOVE m_cmBestMove;
+	CMoveGenerator *m_pMG;
+	CEveluation *m_pEval;
+	int m_nSearchDepth;
+	int m_nMaxDepth;
 };
 
-#endif
+#endif // !defined(AFX_SEARCHENGINE_H__2AF7A220_CB28_11D5_AEC7_5254AB2E22C7__INCLUDED_)

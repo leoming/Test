@@ -1,90 +1,72 @@
+﻿// SearchEngine.cpp: implementation of the CSearchEngine class.
+//
+//////////////////////////////////////////////////////////////////////
+
 #include "SearchEngine.h"
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
-
 CSearchEngine::CSearchEngine()
 {
 }
 
 CSearchEngine::~CSearchEngine()
 {
-    delete m_pMG;
-    delete m_pEval;
+	delete m_pMG;
+	delete m_pEval;
 }
 
 BYTE CSearchEngine::MakeMove(CHESSMOVE* move)
 {
-    BYTE nChessID;
-
-    nChessID=CurPosition[move->To.y][move->To.x];   //取目标位置棋子
-    CurPosition[move->To.y][move->To.x]=CurPosition[move->From.y][move->From.x];
-                                                    //把棋子移动到目标位置    
-    CurPosition[move->From.y][move->From.x]=NOCHESS;//将原位置清空
-    
-    return nChessID;//返回被吃掉的棋子
+	BYTE nChessID;
+	nChessID = CurPosition[move->To.y][move->To.x];
+	CurPosition[move->To.y][move->To.x] = CurPosition[move->From.y][move->From.x];
+	CurPosition[move->From.y][move->From.x] = NOCHESS;
+	return nChessID;
 }
 
-void CSearchEngine::RedoChessMove(BYTE position[][9],CHESSMOVE* move)
+void CSearchEngine::UnMakeMove(CHESSMOVE* move,BYTE nChessID)
 {
-    position[move->To.y][move->To.x]=position[move->From.y][move->From.x];
-    position[move->From.y][move->From.x]=NOCHESS;
+	CurPosition[move->From.y][move->From.x] = CurPosition[move->To.y][move->To.x];
+	CurPosition[move->To.y][move->To.x] = nChessID;
 }
 
-void CSearchEngine::UnMakeMove(CHESSMOVE* move, BYTE nChessID)
+
+int CSearchEngine::IsGameOver(BYTE position[10][9], int nDepth)
 {
-    CurPosition[move->From.y][move->From.x]=CurPosition[move->To.y][move->To.x];//将目标位置棋子拷回原位     
-    CurPosition[move->To.y][move->To.x]=nChessID;                               //恢复目标位置的棋子
-}
+	int i,j;
+	BOOL RedLive = FALSE, BlackLive=FALSE; 
+	
+	for (i = 7; i < 10; i++)
+		for (j = 3; j < 6; j++)
+		{
+			if (position[i][j] == B_KING)
+				BlackLive = TRUE;
+			if (position[i][j] == R_KING)
+				RedLive  = TRUE;
+		}
 
-void CSearchEngine::UndoChessMove(BYTE position[][9],CHESSMOVE* move, BYTE nChessID)
-{
-    position[move->From.y][move->From.x]=position[move->To.y][move->To.x];//将目标位置棋子拷回原位   
-    position[move->To.y][move->To.x]=nChessID;                            //恢复目标位置的棋子
-}
+	for (i = 0; i < 3; i++)
+		for (j = 3; j < 6; j++)
+		{
+			if (position[i][j] == B_KING)
+				BlackLive = TRUE;
+			if (position[i][j] == R_KING)
+				RedLive  = TRUE;
+		}
 
-int CSearchEngine::IsGameOver(BYTE position[][9], int nDepth)
-{
-    int i,j;
-    BOOL RedLive=FALSE,BlackLive=FALSE;
-
-    //检查红方九宫是否有帅
-    for(i=7;i<10;i++)
-        for(j=3;j<6;j++)
-        {
-            if(position[i][j]==B_KING)
-                BlackLive=TRUE;
-            if(position[i][j]==R_KING)
-                RedLive=TRUE;
-        }
-
-    //检查黑方九宫是否有将
-    for(i=0;i<3;i++)
-        for(j=3;j<6;j++)
-        {
-            if(position[i][j]==B_KING)
-                BlackLive=TRUE;
-            if(position[i][j]==R_KING)
-                RedLive=TRUE;
-        }
-
-    i=(m_nMaxDepth-nDepth+1)%2;//取当前奇偶标志,奇数层为电脑方,偶数层为用户方
-    //红方不在
-    if(!RedLive)
-        if(i)
-            return 19990+nDepth; //奇数层返回极大值
-        else
-            return -19990-nDepth;//偶数层返回极小值
-    else return 0;
-
-    //黑方不在
-    if(!BlackLive)
-        if(i)
-            return -19990-nDepth;//奇数层返回极小值
-        else
-            return 19990+nDepth; //偶数层返回极大值
-    else return 0;
-
-    return 0;//将帅都在，返回0
+	i = (m_nMaxDepth - nDepth + 1) % 2;
+	
+	if (!RedLive)
+		if (i)
+			return 19990 + nDepth;
+		else
+			return -19990 - nDepth;
+	if (!BlackLive)
+		if (i)
+			return -19990 - nDepth;
+		else
+			return 19990 + nDepth;
+	return 0;
 }

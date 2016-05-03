@@ -35,7 +35,6 @@ bool CMoveStack::isEmpty()
 CChessGame::CChessGame()
 {
     engine = new CNegaScout_TT_HH();
-    //engine2 = new CNegaMaxEngine();
     evaluator = new CEveluation();
 	moveGenerator = new CMoveGenerator();
     engine->SetMoveGenerator(moveGenerator);
@@ -71,21 +70,8 @@ void CChessGame::initChessBoard()
     {R_CAR,R_HORSE,R_ELEPHANT,R_BISHOP,R_KING,R_BISHOP,R_ELEPHANT,R_HORSE,R_CAR}
     };
     memcpy(board, initBoard, sizeof(board));
-    redoStack.clear();
-    undoStack.clear();
-}
-
-void CChessGame::invertBoard()
-{
-    BYTE tmp;
-
-    for (int i = 0; i < 5; i++)
-        for (int j = 0; j < 9; j++)
-        {
-            tmp = board[i][j];
-            board[i][j] = board[9-i][8-j];
-            board[9-i][8-j] = tmp;
-        }
+    //redoStack.clear();
+    //undoStack.clear();
 }
 
 void CChessGame::caculateComputerMove()
@@ -107,42 +93,31 @@ void CChessGame::caculateComputerMove()
         }
 }
 
-bool CChessGame::moveChess(int fromX, int fromY, int toX, int toY,
-		bool blackOnTop)
+bool CChessGame::moveChess(int fromX, int fromY, int toX, int toY)
 {
-    if (moveGenerator->IsValidMove(board, fromX, fromY, toX, toY,
-                blackOnTop?REDCHESS:BLACKCHESS))
+    if (moveGenerator->IsValidMove(board, fromX, fromY, toX, toY))
     {
-		UNDOMOVE undoMove;
-
-		redoStack.clear();
-        undoMove.cmChessMove.From.x = fromX;
-        undoMove.cmChessMove.From.y = fromY;
-        undoMove.cmChessMove.To.x = toX;
-        undoMove.cmChessMove.To.y = toY;
-        undoMove.cmChessMove.nChessID = board[fromY][fromX];
-        undoMove.nChessID = board[toY][toX];
-        engine->RedoChessMove(board, &undoMove.cmChessMove);
-		undoStack.push(undoMove);
+        board[toY][toX] = board[fromY][fromX];
+        board[fromY][fromX] = NOCHESS;
 		return true;
 	}
 
 	return false;
 }
 
-void CChessGame::computerRun(bool forRed)
+void CChessGame::computerRun()
 {
-	redoStack.clear();
+    //redoStack.clear();
     memcpy(bakBoard,board,90);
-    engine->SetUserChessColor(forRed?BLACKCHESS:REDCHESS);
+    //engine->SetUserChessColor(forRed?BLACKCHESS:REDCHESS);
     engine->SearchAGoodMove(board);
     //computerMove = engine->GetBestMove();
-    undoStack.push(engine->GetUndoMove());
+    //undoStack.push(engine->GetUndoMove());
     caculateComputerMove();
 
     //return &computerMove;
 }
-
+/*
 bool CChessGame::redo()
 {
 	int i = 0;
@@ -172,12 +147,13 @@ bool CChessGame::undo()
 			return false;
 		undoMove = undoStack.pop();
 		redoStack.push(undoMove);
-        engine->UndoChessMove(board, &undoMove.cmChessMove, undoMove.nChessID);
+        //engine->UndoChessMove(board, &undoMove.cmChessMove, undoMove.nChessID);
 	}
 	if (undoStack.isEmpty())
 		return false;
 	return true;
 }
+*/
 
 int CChessGame::isGameOver()
 {
@@ -237,6 +213,13 @@ int CChessGame::getComputerMoveToY()
 void CChessGame::reStart()
 {
     initChessBoard();
+}
+
+void CChessGame::setMoveChess(BYTE x, BYTE y, BYTE value)
+{
+    m_moveChess.nChessID = value;
+    m_moveChess.ptMovePoint.x = x;
+    m_moveChess.ptMovePoint.y = y;
 }
 
 

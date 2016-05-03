@@ -29,6 +29,12 @@ private:
 
 typedef BYTE BoardType[10][9];
 
+typedef struct _movechess
+{
+    BYTE nChessID;
+    POINT ptMovePoint;
+}MOVECHESS;
+
 class CChessGame : public QObject
 {
     Q_OBJECT
@@ -37,10 +43,10 @@ public:
 	virtual ~CChessGame();
 	BoardType* getBoard() { return &board; }
 public slots:
-    void computerRun(bool forRed = true);
-    bool moveChess(int fromX, int fromY, int toX, int toY, bool blackOnTop = true);
-	bool redo(); /* redo a change, return true if changed */
-	bool undo(); /* undo a change, return true if changed */
+    void computerRun();
+    bool moveChess(int fromX, int fromY, int toX, int toY);
+    //bool redo(); /* redo a change, return true if changed */
+    //bool undo(); /* undo a change, return true if changed */
     int isGameOver();
     int getChessAt(int x, int y);
     int getComputerMoveFromX();
@@ -48,23 +54,21 @@ public slots:
     int getComputerMoveToX();
     int getComputerMoveToY();
     void reStart();
+    void setMoveChess(BYTE x, BYTE y, BYTE value);
 private:
     void initChessBoard();
-    void invertBoard();
     void caculateComputerMove();
 
 private:
 	BYTE board[10][9];
     BYTE bakBoard[10][9];
     CSearchEngine* engine;
-    //CSearchEngine* engine2;
-    CMoveStack undoStack;
-	CMoveStack redoStack;
+    //CMoveStack undoStack;
 	CMoveGenerator* moveGenerator;
 	CEveluation* evaluator;
     CHESSMANPOS from;
     CHESSMANPOS to;
-	void validateEngine();
+    MOVECHESS m_moveChess;
 };
 
 #endif

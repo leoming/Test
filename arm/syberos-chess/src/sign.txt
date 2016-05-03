@@ -1,0 +1,2 @@
+./sign-file  sha256  SyberOSDebug.key  SyberOSDebug.cer chess
+sdk-invoker 0 com.syberos.chess:syberos.chess.ui:uiapp /usr/apps/syberos-chess/bin/chess

@@ -450,6 +450,7 @@ CPage {
             if (target !== null) {
                 target.z = 10;
                 target.showAnimate = false
+                //game.setMoveChess(target.xPos, target.yPos, target.value);
             }
         }
         onReleased: {
