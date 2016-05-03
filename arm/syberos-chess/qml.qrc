@@ -3,5 +3,6 @@
         <file>qml/main.qml</file>
         <file>qml/Board.qml</file>
         <file>qml/Chessman.qml</file>
+        <file>qml/AudioPlayer.qml</file>
     </qresource>
 </RCC>

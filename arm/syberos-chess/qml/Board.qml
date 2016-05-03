@@ -436,6 +436,10 @@ CPage {
 
     }
 
+    AudioPlayer {
+        id: player
+    }
+
     MouseArea {
         anchors.fill: parent
         hoverEnabled: true
@@ -453,6 +457,7 @@ CPage {
                 //game.setMoveChess(target.xPos, target.yPos, target.value);
             }
         }
+
         onReleased: {
             if (target === null) return;
             //target.setSource(normalBoard, normalList[target.value - 1])
@@ -461,6 +466,7 @@ CPage {
             var chessItem = getItemByPos(mouseX, mouseY);
             if (game.moveChess(target.xPos, target.yPos, mouseX, mouseY))
             {
+                player.playMoveSound();
                 if (chessItem !== null) {
                     chessItem.reset();
                 }
