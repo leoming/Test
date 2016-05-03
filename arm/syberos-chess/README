@@ -1,0 +1,25 @@
+编译命令：sb2 -t mer-target-armv7tnhl rpmbuild --build-in-place -bb　../test.spec
+
+root用户执行如下操作
+1,先在手机上添加用户和组：
+vi /etc/group 
+把com.syberos.test加入到systemapps里，如下
+systemapps:x:1002:mtp,system,service,framework,install,timed,gpsadmin,bluezadmin,audio,teladmin,appadmin,tracker,secadmin,applauncher, push,com.syberos.contact,com.syberos.message,com.syberos.test,com.syberos.voicecall,com.syberos.settings,com.syberos.bug,bt-share,com.syberos.reader,bluetooth-service,com.syberos.calculator,com.syberos.calendar,com.syberos.clock,com.syberos.userguide,com.syberos.filemanager,com.syberos.weather,com.syberos.email,com.syberos.photos,com.syberos.camera,com.syberos.browser,com.syberos.eim,com.syberos.mdm-client,com.syberos.ota,com.syberos.store,com.syberos.audioplayer,com.syberos.audiorecorder,com.syberos.securitycenter,com.syberos.videoplayer,com.syberos.controlDemo
+
+vi /etc/passwd
+在文件末尾加上：
+com.syberos.test:!!:20029:20029::/data/data/com.syberos.test:/sbin/nologin
+
+2,拷贝到手机上安装：
+rpm -ivh --force test-1.0.0-1.armv7tnhl.rpm
+
+chown com.syberos.test:appadmin /usr/apps/test/ -R
+
+3,更新packmanager信息
+rm /data/install/packageserviced/apprecord.db
+
+killall -9 packagemanagerd
+
+4,启动命令
+sdk-invoker 0 com.syberos.test:syberos.test.ui:uiapp /usr/apps/test/bin/test
+

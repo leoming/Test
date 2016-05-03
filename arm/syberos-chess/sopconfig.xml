@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sopconfig xmlns:syberos="http://schemas.syberos.com/rpm/res/syberos"
+           syberos:sopid="com.syberos.chess"
+           syberos:versionCode="1.0.0"
+           syberos:versionName="1.0.0">
+    <uses-permission syberos:name="syberos.permission.ACCESS_NOTIFICATION"/>
+
+    <application syberos:debuggable="true"
+                     syberos:description="chessapp"
+                     syberos:icon="chess.png"
+                     syberos:name="chess">
+        <uiapp syberos:id="syberos.chess.ui"
+                   syberos:exec="bin/chess"
+                       syberos:splash=""
+                       syberos:icon="chess.png"
+                       syberos:background="stop"
+                       syberos:name="象棋">
+                 <url>
+                    <scheme>chess</scheme>
+                 </url>
+        </uiapp>
+    </application>
+</sopconfig>
+

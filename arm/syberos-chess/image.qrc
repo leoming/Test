@@ -1,0 +1,44 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/active_moves.png</file>
+        <file>images/red_chess_checked.png</file>
+        <file>images/black_jiang1.png</file>
+        <file>images/black_jiang2.png</file>
+        <file>images/black_ju1.png</file>
+        <file>images/black_ju2.png</file>
+        <file>images/black_ma1.png</file>
+        <file>images/black_ma2.png</file>
+        <file>images/black_pao1.png</file>
+        <file>images/black_pao2.png</file>
+        <file>images/black_si1.png</file>
+        <file>images/black_si2.png</file>
+        <file>images/black_xiang1.png</file>
+        <file>images/black_xiang2.png</file>
+        <file>images/black_zu1.png</file>
+        <file>images/black_zu2.png</file>
+        <file>images/blue_circle.png</file>
+        <file>images/board212.png</file>
+        <file>images/chess_board.png</file>
+        <file>images/chess_normal.png</file>
+        <file>images/eat_chess.png</file>
+        <file>images/red_bing1.png</file>
+        <file>images/red_bing2.png</file>
+        <file>images/black_chess_checked.png</file>
+        <file>images/red_ju1.png</file>
+        <file>images/red_ju2.png</file>
+        <file>images/red_ma1.png</file>
+        <file>images/red_ma2.png</file>
+        <file>images/red_pao1.png</file>
+        <file>images/red_pao2.png</file>
+        <file>images/red_si1.png</file>
+        <file>images/red_si2.png</file>
+        <file>images/red_suai1.png</file>
+        <file>images/red_suai2.png</file>
+        <file>images/red_xiang1.png</file>
+        <file>images/red_xiang2.png</file>
+        <file>images/white_circle.png</file>
+        <file>images/room_bg.png</file>
+        <file>images/restart_img.png</file>
+        <file>images/quit_img.png</file>
+    </qresource>
+</RCC>
