@@ -13,8 +13,6 @@ BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  pkgconfig(Qt5Widgets)
 BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Quick)
-BuildRequires:  pkgconfig(Qt5Multimedia)
-BuildRequires:  pkgconfig(tracker-sparql-0.18)
 BuildRequires:  pkgconfig(syberos-application)
 BuildRequires:  pkgconfig(syberos-application-cache)
 
@@ -71,4 +69,5 @@ find ${RPM_BUILD_DIR} -name '*.gcno' -exec  tar -cvzf %{buildroot}/home/abuild/c
 %{_app_system_appdir}/sopconfig.xml
 %defattr(777,service,service,-)
 %{_app_system_appdir}/res/chess.png
+%{_app_system_appdir}/audio/audio_move_chess.ogg
 

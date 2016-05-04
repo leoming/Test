@@ -11,6 +11,9 @@ icon.path = $${TARGET_DIR}/res
 sopconfig.files = sopconfig.xml
 sopconfig.path = $${TARGET_DIR}
 
+audio.files = audio/audio_move_chess.ogg
+audio.path = $${TARGET_DIR}/audio
+
 INSTALLS += icon sopconfig audio
 
 clear.commands += rm -fr *.tar.gz *.rpm rpmbuild

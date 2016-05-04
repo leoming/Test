@@ -3,10 +3,7 @@ TARGET = chess
 CONFIG -= app_bundle
 CONFIG += qml_debug link_pkgconfig
 PKGCONFIG += syberos-application syberos-application-cache
-QT += qml quick gui widgets multimedia
-PKGCONFIG += \
-tracker-sparql-0.18 \
-glib-2.0
+QT += qml quick gui widgets
 
 INCLUDEPATH	+= . engine
 
@@ -35,8 +32,7 @@ OBJECTS_DIR = .obj
 
 RESOURCES += \
     ../image.qrc \
-    ../qml.qrc \
-    ../audio.qrc
+    ../qml.qrc
 
 
 target.path = /usr/apps/syberos-chess/bin
