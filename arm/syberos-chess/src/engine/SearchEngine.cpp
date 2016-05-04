@@ -58,15 +58,17 @@ int CSearchEngine::IsGameOver(BYTE position[10][9], int nDepth)
 
 	i = (m_nMaxDepth - nDepth + 1) % 2;
 	
-	if (!RedLive)
+    if (!RedLive) {
 		if (i)
 			return 19990 + nDepth;
 		else
 			return -19990 - nDepth;
-	if (!BlackLive)
+    }
+    if (!BlackLive) {
 		if (i)
 			return -19990 - nDepth;
 		else
 			return 19990 + nDepth;
+    }
 	return 0;
 }

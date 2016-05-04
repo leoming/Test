@@ -255,6 +255,7 @@ CPage {
     }
 
     function restartGame() {
+        gameOver = false;
         game.reStart();
         var item;
         for (var i = 0; i < chessList.length; ++i) {
@@ -430,9 +431,11 @@ CPage {
     Timer {
         id: resetComputer
         repeat: false
-        interval: 600
-        onTriggered:
+        interval: 500
+        onTriggered: {
+            player.playMoveSound();
             computerThinking = false
+        }
 
     }
 

@@ -221,5 +221,3 @@ void CChessGame::setMoveChess(BYTE x, BYTE y, BYTE value)
     m_moveChess.ptMovePoint.x = x;
     m_moveChess.ptMovePoint.y = y;
 }
-
-

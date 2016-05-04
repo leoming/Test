@@ -3,7 +3,13 @@
            syberos:sopid="com.syberos.chess"
            syberos:versionCode="1.0.0"
            syberos:versionName="1.0.0">
-    <uses-permission syberos:name="syberos.permission.ACCESS_NOTIFICATION"/>
+           <uses-permission syberos:name="syberos.permission.ACCESS_DATA_NETWORK"/>
+           <uses-permission syberos:name="syberos.permission.ACCESS_WIFI"/>
+           <uses-permission syberos:name="syberos.permission.ACCESS_STORAGE"/>
+           <uses-permission syberos:name="syberos.permission.ACCESS_WAKELOCK"/>
+           <uses-permission syberos:name="syberos.permission.ACCESS_NOTIFICATION"/>
+           <uses-permission syberos:name="syberos.permission.RECORD"/>
+           <uses-permission syberos:name="syberos.permission.VIBRATE"/>
 
     <application syberos:debuggable="true"
                      syberos:description="chessapp"

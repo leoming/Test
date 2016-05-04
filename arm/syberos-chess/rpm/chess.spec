@@ -13,6 +13,8 @@ BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  pkgconfig(Qt5Widgets)
 BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Quick)
+BuildRequires:  pkgconfig(Qt5Multimedia)
+BuildRequires:  pkgconfig(tracker-sparql-0.18)
 BuildRequires:  pkgconfig(syberos-application)
 BuildRequires:  pkgconfig(syberos-application-cache)
 

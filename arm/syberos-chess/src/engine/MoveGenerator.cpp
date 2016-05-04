@@ -426,7 +426,7 @@ void CMoveGenerator::Gen_CanonMove(BYTE position[10][9], int i, int j, int nPly)
 
 BOOL CMoveGenerator::IsValidMove(BYTE position[10][9], int nFromX, int nFromY, int nToX, int nToY)
 {
-	int i, j;
+    int i = 0, j = 0;
 	int nMoveChessID, nTargetID;
 	
 	if (nFromY ==  nToY && nFromX == nToX)

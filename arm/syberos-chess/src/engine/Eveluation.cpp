@@ -576,7 +576,7 @@ int CEveluation::GetRelatePiece(BYTE position[10][9], int j, int i)
 
 BOOL CEveluation::CanTouch(BYTE position[10][9], int nFromX, int nFromY, int nToX, int nToY)
 {
-	int i, j;
+    int i = 0, j = 0;
 	int nMoveChessID, nTargetID;
 	
 	if (nFromY ==  nToY && nFromX == nToX)

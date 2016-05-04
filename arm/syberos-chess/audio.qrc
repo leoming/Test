@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>audio/audio_move_chess.ogg</file>
+    </qresource>
+</RCC>
+

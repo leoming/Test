@@ -11,7 +11,7 @@ icon.path = $${TARGET_DIR}/res
 sopconfig.files = sopconfig.xml
 sopconfig.path = $${TARGET_DIR}
 
-INSTALLS += icon sopconfig
+INSTALLS += icon sopconfig audio
 
 clear.commands += rm -fr *.tar.gz *.rpm rpmbuild
 clear.depends = clean distclean
