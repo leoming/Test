@@ -10,6 +10,8 @@ Item {
     visible: false
     width: border.width
     height: border.height
+    x: -100
+    y: -100
     function setSource(borderSource, wordSource) {
         border.source = borderSource;
         word.source = wordSource;
@@ -23,6 +25,8 @@ Item {
         word.source = ""
         showAnimate = true
         visible = false
+        x = -100
+        y = -100
     }
 
     Image {
