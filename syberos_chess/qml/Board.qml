@@ -415,15 +415,18 @@ CPage {
     Timer {
         id: computerTimer
         repeat: false
-        interval: 100
+        interval: 200
         onTriggered: {
             computerThinking = true
-            game.computerRun(false);
+            game.computerRun();
             moveForComputerRun();
             var status = game.isGameOver();
             if (status) {
                 console.log(status === 1 ? "computer win!" : "user win!")
-                console.log(status === 1 ? gToast.requestToast("computer win!") : gToast.requestToast("user win!"))
+                if (status === 1)
+                    gToast.requestToast("computer win!");
+                else
+                    gToast.requestToast("you win!");
                 gameOver = true;
             }
             resetComputer.start();
@@ -435,14 +438,23 @@ CPage {
         repeat: false
         interval: 500
         onTriggered: {
-            player.playMoveSound();
+            //player.playMoveSound();
+            if (game.checkIsChecked(1)) {
+                checkPlayer.playCheckSound();
+            }
+            else {
+                player.playMoveSound();
+            }
             computerThinking = false
         }
 
     }
 
-    AudioPlayer {
+    MoveAudioPlayer {
         id: player
+    }
+    CheckAudioPlayer {
+        id: checkPlayer
     }
 
     MouseArea {
@@ -471,7 +483,13 @@ CPage {
             var chessItem = getItemByPos(mouseX, mouseY);
             if (game.moveChess(target.xPos, target.yPos, mouseX, mouseY))
             {
-                player.playMoveSound();
+                if (game.checkIsChecked(0)) {
+                    checkPlayer.playCheckSound();
+                }
+                else {
+                    player.playMoveSound();
+                }
+
                 if (chessItem !== null) {
                     chessItem.reset();
                 }
@@ -484,6 +502,10 @@ CPage {
                 var status = game.isGameOver();
                 if (status) {
                     console.log(status === 1 ? "computer win!" : "user win!")
+                    if (status === 1)
+                        gToast.requestToast("computer win!");
+                    else
+                        gToast.requestToast("you win!");
                     gameOver = true;
                 }
                 else {

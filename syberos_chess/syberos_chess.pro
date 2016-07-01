@@ -68,7 +68,7 @@ meta.path = $$INS_DIR/
 syber.files = sopconfig.xml
 syber.path = $$INS_DIR/
 
-audio.files = audio/audio_move_chess.ogg
+audio.files = audio/*.ogg
 audio.path = $$INS_DIR/audio
 
 INSTALLS += target res meta syber audio

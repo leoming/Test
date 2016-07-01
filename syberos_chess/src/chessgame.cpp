@@ -100,7 +100,7 @@ bool CChessGame::moveChess(int fromX, int fromY, int toX, int toY)
         board[toY][toX] = board[fromY][fromX];
         board[fromY][fromX] = NOCHESS;
 		return true;
-	}
+    }
 
 	return false;
 }
@@ -220,4 +220,60 @@ void CChessGame::setMoveChess(BYTE x, BYTE y, BYTE value)
     m_moveChess.nChessID = value;
     m_moveChess.ptMovePoint.x = x;
     m_moveChess.ptMovePoint.y = y;
+}
+// 0 user 1 computer
+bool CChessGame::checkIsChecked(int type)
+{
+    CHESSMANPOS target;
+    target.x = 100;
+    target.y = 100;
+    if (type == 0) {
+        for (int y = 0; y < 3; y++)
+            for (int x = 3; x < 6; x++)
+            {
+                if (board[y][x] == B_KING) {
+                    target.x = x;
+                    target.y = y;
+                    break;
+                }
+            }
+
+        for (int y = 0; y < 10; y++)
+            for (int x = 0; x < 9; x++)
+            {
+                if (board[y][x] == R_PAWN ||
+                        board[y][x] == R_CANON ||
+                        board[y][x] == R_CAR ||
+                        board[y][x] == R_HORSE) {
+                    if (moveGenerator->IsValidMove(board, x, y, target.x, target.y)) {
+                        return true;
+                    }
+                }
+            }
+        return false;
+    } else if (type == 1) {
+        for (int y = 7; y < 10; y++)
+            for (int x = 3; x < 6; x++)
+            {
+                if (board[y][x] == R_KING) {
+                    target.x = x;
+                    target.y = y;
+                    break;
+                }
+            }
+        for (int y = 0; y < 10; y++)
+            for (int x = 0; x < 9; x++)
+            {
+                if (board[y][x] == B_PAWN ||
+                        board[y][x] == B_CANON ||
+                        board[y][x] == B_CAR ||
+                        board[y][x] == B_HORSE) {
+                    if (moveGenerator->IsValidMove(board, x, y, target.x, target.y)) {
+                        return true;
+                    }
+                }
+            }
+        return false;
+    }
+    return false;
 }

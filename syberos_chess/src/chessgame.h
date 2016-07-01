@@ -55,6 +55,7 @@ public slots:
     int getComputerMoveToY();
     void reStart();
     void setMoveChess(BYTE x, BYTE y, BYTE value);
+    bool checkIsChecked(int type);
 private:
     void initChessBoard();
     void caculateComputerMove();

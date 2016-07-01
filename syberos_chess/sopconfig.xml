@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sopconfig syberos:versionCode="1" xmlns:syberos="http://schemas.syberos.com/sop/res/syberos/v1" syberos:sopid="com.syberos.chess" syberos:shareUserId="" syberos:versionName="1.0.0">
+<sopconfig syberos:versionName="1.0.1" syberos:versionCode="2" xmlns:syberos="http://schemas.syberos.com/sop/res/syberos/v1" syberos:sopid="com.syberos.chess" syberos:shareUserId="">
     <uses-permission syberos:name="syberos.permission.ACCESS_WIFI"/>
     <uses-permission syberos:name="syberos.permission.CLEAR_APP_DATA"/>
     <uses-permission syberos:name="syberos.permission.DEVICE_DATAFORMAT"/>
     <uses-permission syberos:name="syberos.permission.VIBRATE"/>
-    <uses-sdk syberos:minSdkVersion="" syberos:targetSdkVersion=""/>
-    <application syberos:debuggable="true" syberos:name="象棋" syberos:icon="res/chess.png" syberos:description="Brief introduction of your application here. ">
-        <uiapp syberos:background="" syberos:name="" syberos:icon="res/chess.png" syberos:id="chess" syberos:launcher="true" syberos:exec="bin/chess" syberos:splash="">
+    <uses-sdk syberos:targetSdkVersion="" syberos:minSdkVersion=""/>
+    <application syberos:name="象棋" syberos:icon="res/chess.png" syberos:description="中国象棋" syberos:debuggable="true">
+        <uiapp syberos:splash="" syberos:name="" syberos:id="chess" syberos:icon="res/chess.png" syberos:launcher="true" syberos:background="" syberos:exec="bin/chess">
             <doctype syberos:id=""/>
         </uiapp>
     </application>
