@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 3.6.0, 2016-05-05T10:28:07. -->
+<!-- Written by QtCreator 3.6.0, 2016-07-01T16:29:27. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -347,7 +347,7 @@
       <valuelist type="QVariantList" key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedRemotePaths"/>
       <valuelist type="QVariantList" key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedSysroots"/>
       <valuelist type="QVariantList" key="Qt4ProjectManager.MaemoRunConfiguration.LastDeployedTimes"/>
-      <value type="QString" key="RemoteLinuxInstallPackageStep.CommandLine">/usr/bin/ins-tool -siu /tmp/com.syberos.chess-1.0.0.sop &amp;&amp; rm -f /tmp/com.syberos.chess-1.0.0.sop</value>
+      <value type="QString" key="RemoteLinuxInstallPackageStep.CommandLine">/usr/bin/ins-tool -siu /tmp/com.syberos.chess-1.0.1.sop &amp;&amp; rm -f /tmp/com.syberos.chess-1.0.1.sop</value>
      </valuemap>
      <value type="int" key="ProjectExplorer.BuildStepList.StepsCount">3</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Deploy</value>

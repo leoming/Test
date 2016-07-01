@@ -39,7 +39,7 @@ CChessGame::CChessGame()
 	moveGenerator = new CMoveGenerator();
     engine->SetMoveGenerator(moveGenerator);
     engine->SetEveluator(evaluator);
-    engine->SetSearchDepth(3);
+    engine->SetSearchDepth(6);
     //engine2->SetMoveGenerator(moveGenerator);
     //engine2->SetEveluator(evaluator);
     //engine2->SetSearchDepth(5);
