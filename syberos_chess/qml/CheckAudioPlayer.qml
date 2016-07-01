@@ -5,7 +5,7 @@ Audio {
     id: player
     source: "file:///data/apps/com.syberos.chess/audio/audio_move_check.ogg"
     volume: .5
-    function playMoveSound() {
+    function playCheckSound() {
         player.play();
     }
 }
